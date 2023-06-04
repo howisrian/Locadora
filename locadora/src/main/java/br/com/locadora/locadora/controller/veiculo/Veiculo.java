@@ -1,39 +1,31 @@
 package br.com.locadora.locadora.controller.veiculo;
-
 import javax.validation.constraints.NotBlank;
+import javax.xml.crypto.Data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Veiculo {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
     @NotBlank
     private String modelo;
-    
     @NotBlank
     private String marca;
-    
     @NotBlank
     private String motor;
-    
-    @NotNull
+    @NotBlank
     private Integer lugares;
-    
     @NotBlank
     private String cor;
-    
+    @NotBlank
     private boolean disponivel;
-    
-    @NotNull
-    private Integer ano;
-    
+    @NotBlank
+    private Data ano;
     @NotBlank
     private String placa;
     
@@ -81,10 +73,10 @@ public class Veiculo {
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }   
-    public Integer getAno() {
+    public Data getAno() {
         return ano;
     }
-    public void setAno(Integer ano) {
+    public void setAno(Data ano) {
         this.ano = ano;
     }
     public String getPlaca() {

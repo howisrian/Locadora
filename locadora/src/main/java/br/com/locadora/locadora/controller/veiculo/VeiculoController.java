@@ -47,10 +47,6 @@ public class VeiculoController {
     public Veiculo buscarVeiculoPorMarca(@RequestParam String marca){
         return veiculoRepository.findByMarca(marca).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
-    @GetMapping("buscarPorDisponivel")
-    public Veiculo buscarVeiculoPorDisponivel(@RequestParam Boolean disponivel){
-        return veiculoRepository.findByDisponivel(disponivel).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
 
 
     @PutMapping("{id}")
@@ -66,9 +62,8 @@ public class VeiculoController {
         veiculo.setPlaca(veiculoAtualizado.getPlaca());
         return veiculoRepository.save(veiculo);
     }
-}
 
-/* EXAMPL pra usar no THUNDER CLIENT: http://localhost:8080/veiculos ou http://localhost:8080/veiculos/buscarPorDisponivel?disponivel=false
+    /* EXAMPLE DE PESQUISA NO THUNDER CLIENT:
     {
         "modelo":"golf",
         "marca":"volkswagen",
@@ -80,3 +75,4 @@ public class VeiculoController {
         "placa":"000a0"
     }
     */
+}
